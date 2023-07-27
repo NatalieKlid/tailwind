@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {MatDividerModule} from '@angular/material/divider';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatDividerModule
+    MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatDividerModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

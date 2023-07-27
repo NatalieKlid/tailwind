@@ -1,22 +1,32 @@
 <mat-toolbar>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
-   <mat-icon *ngIf="!drawer.opened">menu</mat-icon>
-   <mat-icon *ngIf="drawer.opened">close</mat-icon>
- </button>
- <span>News app built with Tailwind</span>
- <span class="example-spacer"></span>
- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-   <mat-icon>favorite</mat-icon>
- </button>
- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-  <mat-icon>share</mat-icon>
-</button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+    (click)="drawer.toggle()">
+    <mat-icon *ngIf="!drawer.opened">menu</mat-icon>
+    <mat-icon *ngIf="drawer.opened">close</mat-icon>
+  </button>
+  <span>News app built with Tailwind</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
 </mat-toolbar>
 
 <mat-sidenav-container hasBackdrop="true" class="main-content">
   <mat-sidenav #drawer class="side-drawer">
-    <h2 class="side-drawer-header">Latest news</h2>
+    <div class="side-drawer-header"></div>
     <mat-divider></mat-divider>
+    <div *ngFor="let category of categories">
+      <h3>{{category}}</h3>
+      <ng-container *ngFor="let source of sources">
+        <button mat-button *ngIf="source.category === category">{{source.name}}</button>
+      </ng-container>
+      
+      <mat-divider></mat-divider>
+    </div>
+    
   </mat-sidenav>
   <mat-sidenav-content>Main</mat-sidenav-content>
 </mat-sidenav-container>
