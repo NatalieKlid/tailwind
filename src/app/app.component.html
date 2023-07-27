@@ -1,7 +1,6 @@
 <section class="flex flex-col overflow-y-auto overflow-x-hidden h-screen">
   <mat-toolbar>
-    <button mat-icon-button aria-label="Example icon-button with menu icon"
-      (click)="drawer.toggle()">
+    <button mat-icon-button aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
       <mat-icon *ngIf="!drawer.opened">menu</mat-icon>
       <mat-icon *ngIf="drawer.opened">close</mat-icon>
     </button>
@@ -16,13 +15,14 @@
   </mat-toolbar>
 
   <mat-sidenav-container hasBackdrop="true" class="grow">
-    <mat-sidenav #drawer class="p-30">
+    <mat-sidenav #drawer class="p-5">
       <div class="h-32 bg-[url('assets/images/news.png')] bg-top bg-no-repeat bg-contain"></div>
       <mat-divider></mat-divider>
-      <div *ngFor="let category of categories">
-        <h3>{{category}}</h3>
+      <div *ngFor="let category of categories" class="flex flex-col items-start">
+        <h3 class="text-2xl uppercase my-4">{{category}}</h3>
         <ng-container *ngFor="let source of sources">
-          <button mat-button *ngIf="source.category === category">{{source.name}}</button>
+          <button mat-button *ngIf="source.category === category"><span
+              class="text-sm">{{source.name}}</span></button>
         </ng-container>
 
         <mat-divider></mat-divider>

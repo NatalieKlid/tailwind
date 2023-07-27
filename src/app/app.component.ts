@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.api.getSources().pipe(take(1)).subscribe(response => {
       const sourceSet = new Set();
-      response.sources.forEach(element => {
+      response.sources.filter(el => el.language === 'en').forEach(element => {
         if (!sourceSet.has(element.id)) {
           this.sources.push(element);
           sourceSet.add(element.id);
